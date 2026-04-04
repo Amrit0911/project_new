@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="A premium Smart City AI Dashboard providing live data and intelligent chatbot assistance.">
+    <title>Smart City AI Citizen Dashboard</title>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="background-elements">
+        <div class="blob shape-1"></div>
+        <div class="blob shape-2"></div>
+        <div class="blob shape-3"></div>
+    </div>
+
+    <header class="app-header">
+        <h1>Smart City Dashboard</h1>
+        <p>Real-time insights for the modern citizen</p>
+    </header>
+
+    <main class="dashboard-grid">
+        <!-- Weather Card -->
+        <div class="card glass" id="weather-card">
+            <div class="card-header">
+                <h2>Weather</h2>
+                <button class="icon-btn refresh-btn" onclick="fetchWeather()" title="Refresh Data">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21.5 2v6h-6M21.34 15.57a10 10 0 1 1-.59-10.94l5.67-5.5"/></svg>
+                </button>
+            </div>
+            <div class="card-content" id="weather-content">
+                <div class="loader">Loading...</div>
+            </div>
+        </div>
+
+        <!-- Currency Card -->
+        <div class="card glass" id="currency-card">
+            <div class="card-header">
+                <h2>Currency Rates</h2>
+                <button class="icon-btn refresh-btn" onclick="fetchCurrency()" title="Refresh Data">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21.5 2v6h-6M21.34 15.57a10 10 0 1 1-.59-10.94l5.67-5.5"/></svg>
+                </button>
+            </div>
+            <div class="card-content" id="currency-content">
+                 <div class="loader">Loading...</div>
+            </div>
+        </div>
+
+        <!-- Citizen Profile Card -->
+        <div class="card glass" id="citizen-card">
+            <div class="card-header">
+                <h2>Citizen Profile</h2>
+                <button class="icon-btn refresh-btn" onclick="fetchCitizen()" title="Refresh Data">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21.5 2v6h-6M21.34 15.57a10 10 0 1 1-.59-10.94l5.67-5.5"/></svg>
+                </button>
+            </div>
+            <div class="card-content" id="citizen-content">
+                 <div class="loader">Loading...</div>
+            </div>
+        </div>
+
+        <!-- City Fact Card -->
+        <div class="card glass" id="fact-card">
+            <div class="card-header">
+                <h2>Fact of the Day</h2>
+                <button class="icon-btn refresh-btn" onclick="fetchFact()" title="Refresh Data">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21.5 2v6h-6M21.34 15.57a10 10 0 1 1-.59-10.94l5.67-5.5"/></svg>
+                </button>
+            </div>
+            <div class="card-content" id="fact-content">
+                 <div class="loader">Loading...</div>
+            </div>
+        </div>
+    </main>
+
+    <!-- Floating Chatbot Widget -->
+    <div class="chatbot-container">
+        <div class="chat-window glass hidden" id="chat-window">
+            <div class="chat-header">
+                <h3>City AI Assistant</h3>
+                <button class="icon-btn close-btn" onclick="toggleChat()">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg>
+                </button>
+            </div>
+            <div class="chat-messages" id="chat-messages">
+                <div class="message bot">
+                    <div class="msg-bubble">Hello! I am your City AI Assistant. I can answer questions about the current weather, currency rates, your profile, or today's city fact.</div>
+                </div>
+            </div>
+            <form class="chat-input-area" id="chat-form">
+                <input type="text" id="chat-input" placeholder="Ask me something..." autocomplete="off" required>
+                <button type="submit" class="send-btn" id="send-btn">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="22" y1="2" x2="11" y2="13"></line><polygon points="22 2 15 22 11 13 2 9 22 2"></polygon></svg>
+                </button>
+            </form>
+        </div>
+        
+        <button class="chat-toggle-btn" id="chat-toggle-btn" onclick="toggleChat()">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"></path></svg>
+        </button>
+    </div>
+
+    <script type="module" src="script.js"></script>
+</body>
+</html>
